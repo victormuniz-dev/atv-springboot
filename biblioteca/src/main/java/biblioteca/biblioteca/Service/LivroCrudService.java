@@ -19,6 +19,10 @@ public interface LivroCrudService {
 
     LivroResponseDto buscarLivro(Long id);
 
+    List<LivroResponseDto> buscaPorIbsn(String ibns);
+
+    List<LivroResponseDto> buscaPorTitulo(String titulo);
+
     LivroResponseDto atualizarLivro(Long id, LivroPostPutDto autorPostPutDto);
 
     void removerLivro(Long id);

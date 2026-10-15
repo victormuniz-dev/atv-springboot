@@ -34,6 +34,22 @@ public class LivroCrudPadraoService implements LivroCrudService{
     }
 
     @Override
+    public List<LivroResponseDto> buscaPorIbsn(String ibns) {
+        return livroRepository.findByISBNContainigIgnoreCase(ibns)
+                .stream()
+                .map(livro -> modelMapper.map(livro, LivroResponseDto.class))
+                .toList();
+    }
+
+    @Override
+    public List<LivroResponseDto> buscaPorTitulo(String titulo) {
+        return livroRepository.findByTituloContainigIgnoreCase(titulo)
+                .stream()
+                .map(livro -> modelMapper.map(livro, LivroResponseDto.class))
+                .toList();
+    }
+
+    @Override
     public LivroResponseDto buscarLivro(Long id) {
         return modelMapper.map(livroRepository.findById(id), LivroResponseDto.class);
     }

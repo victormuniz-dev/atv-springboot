@@ -26,19 +26,16 @@ public class Livro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Id
     @Column(name = "ds_isbn", nullable = false)
     @JsonProperty("ISBN")
     private String ISBN;
 
-    @Id
     @Column(name = "ds_titulo", nullable = false)
     @JsonProperty("titulo")
     private String título;
 
     @ManyToOne  
-    @JoinColumn(name="autor")
-    @Column(name = "ds_autor", nullable = false)
+    @JoinColumn(name="autor", nullable = false)
     @JsonProperty("autor")
     private Autor autor;
 
